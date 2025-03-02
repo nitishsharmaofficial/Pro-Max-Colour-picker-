@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <title>Pro Max Color Picker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO Optimization Meta Tags -->
+    <title>Pro Max Color Picker & Palette Generator – HEX, RGB, HSL, CMYK</title>
+    <meta name="description" content="The best online Color Picker & Palette Generator. Get HEX, RGB, HSL, and CMYK codes, create color palettes, and save your favorite colors. Try our advanced color tool now!">
+    <meta name="keywords" content="color picker, hex color, rgb color, hsl color, cmyk color, palette generator, color gradient, color converter, online color tool">
+    <meta name="author" content="Pro Max color Picker">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    
+    <!-- Open Graph (OG) Meta Tags for Social Media -->
+    <meta property="og:title" content="Pro Max Color Picker & Palette Generator">
+    <meta property="og:description" content="Get HEX, RGB, HSL, and CMYK color codes, generate color palettes, and save colors with our advanced online color tool.">
+    <meta property="og:image" content="https://yourwebsite.com/color-picker-thumbnail.jpg">
+    <meta property="og:url" content="https://yourwebsite.com/color-picker">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="YourWebsite">
+    
+    <!-- Canonical Tag (Prevents Duplicate Content Issues) -->
+    <link rel="canonical" href="https://yourwebsite.com/color-picker">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://i.ibb.co/dJB87LYk/file-R1-Ygm4ga8-Ykh-WMUEf-Gu-AVc-photoaidcom-cropped-webp.png">
+    
+    <!-- Google Verification (If Needed) -->
+    <meta name="google-site-verification" content="your-google-verification-code">
+    
+    <!-- Schema Markup for Rich Results (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Pro Max Color Picker & Palette Generator",
+    "url": "https://yourwebsite.com/color-picker",
+    "description": "Get HEX, RGB, HSL, and CMYK color codes, generate color palettes, and save colors with our advanced online color tool.",
+    "image": "https://yourwebsite.com/color-picker-thumbnail.jpg",
+    "author": {
+    "@type": "Person",
+    "name": "Nitin Kashayap"
+    },
+    "applicationCategory": "Design",
+    "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "INR"
+    }
+    }
+    </script>
+    
+    <!-- Mobile Friendly & Theme Color -->
+    <meta name="theme-color" content="#ff6600">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; transition: 0.3s; }
+        body { background: var(--bg-color); color: var(--text-color); --bg-color: #f5f5f5; --text-color: #222; --card-bg: rgba(255, 255, 255, 0.9); }
+        body.dark { --bg-color: #222; --text-color: #fff; --card-bg: rgba(0, 0, 0, 0.8); }
+
+        /* Navigation */
+        nav { position: sticky; top: 0; background: var(--card-bg); backdrop-filter: blur(10px); display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); z-index: 1000; }
+        .logo { font-size: 1.5rem; font-weight: bold; }
+        .theme-toggle { cursor: pointer; font-size: 1.5rem; }
+
+        /* Tool Section */
+        .tool-section { text-align: center; padding: 50px 20px; }
+        .color-picker { background: var(--card-bg); padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); display: inline-block; margin-top: 20px; width: 100%; max-width: 400px; }
+        .color-display { width: 100%; height: 190px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); }
+
+        /* Sliders */
+        .sliders { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 15px; }
+        .slider-container { width: 100%; max-width: 300px; text-align: left; }
+        .slider { width: 100%; height: 8px; border-radius: 5px; }
+
+        /* Input Fields */
+        .color-inputs { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 15px; }
+        .input-group { display: flex; align-items: center; width: 100%; max-width: 300px; }
+        .color-inputs input { padding: 8px; border: 1px solid #ccc; border-radius: 5px; text-align: center; width: 100%; font-weight: bold; font-size: 1rem; }
+        .copy-btn { background: #008CBA; color: white; border: none; padding: 8px; cursor: pointer; border-radius: 5px; margin-left: 5px; font-size: 1.2rem; }
+
+        /* History */
+        .history { text-align: center; margin-top: 30px; }
+        .history h3 { font-size: 1.4rem; margin-bottom: 10px; }
+        .history-box { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+        .history-item { width: 50px; height: 50px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); cursor: pointer; }
+
+        /* About & How to Use */
+        .about-section { text-align: center; padding: 50px 20px; max-width: 800px; margin: auto; }
+        .about-section h2 { font-size: 2rem; margin-bottom: 15px; }
+        .about-section p { font-size: 1.1rem; line-height: 1.6; }
+        
+        /* Footer */
+        .footer { text-align: center; padding: 20px; background: var(--card-bg); margin-top: 50px; box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo"><i class="fas fa-palette"></i> Color Picker</div>
+        <div class="theme-toggle"><i class="fas fa-moon"></i></div>
+    </nav>
+
+    <!-- Color Picker -->
+    <section class="tool-section">
+        <h2>Color Picker</h2>
+        <div class="color-picker">
+            <div class="color-display" id="colorDisplay"></div>
+            <div class="sliders">
+                <div class="slider-container">
+                    <label>Red</label>
+                    <input type="range" min="0" max="255" value="255" class="slider red" id="redSlider">
+                </div>
+                <div class="slider-container">
+                    <label>Green</label>
+                    <input type="range" min="0" max="255" value="102" class="slider green" id="greenSlider">
+                </div>
+                <div class="slider-container">
+                    <label>Blue</label>
+                    <input type="range" min="0" max="255" value="0" class="slider blue" id="blueSlider">
+                </div>
+            </div>
+            <div class="color-inputs">
+                <div class="input-group">
+                    <input type="text" id="hexCode" readonly>
+                    <button class="copy-btn" onclick="copyColor('hexCode')"><i class="fas fa-copy"></i></button>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="rgbCode" readonly>
+                    <button class="copy-btn" onclick="copyColor('rgbCode')"><i class="fas fa-copy"></i></button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- History -->
+        <div class="history">
+            <h3>Copied Colors</h3>
+            <div class="history-box" id="historyBox"></div>
+        </div>
+    </section>
+    
+    <!-- About & How to Use -->
+    <section class="about-section">
+    <h2>About & How to Use</h2>
+    <p>
+    Pro Max Color Picker is an intuitive tool for selecting and generating colors using RGB sliders.
+    Simply adjust the sliders to change the color and view its HEX and RGB values instantly.
+    You can use these colors in your projects for designing websites, graphics, and more.
+    </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Pro Max Color Picker. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        let redSlider = document.getElementById('redSlider');
+        let greenSlider = document.getElementById('greenSlider');
+        let blueSlider = document.getElementById('blueSlider');
+        let colorDisplay = document.getElementById('colorDisplay');
+        let hexCode = document.getElementById('hexCode');
+        let rgbCode = document.getElementById('rgbCode');
+        let historyBox = document.getElementById('historyBox');
+
+        function updateColor() {
+            let r = redSlider.value, g = greenSlider.value, b = blueSlider.value;
+            let color = `rgb(${r},${g},${b})`;
+            colorDisplay.style.background = color;
+            hexCode.value = rgbToHex(r, g, b);
+            rgbCode.value = color;
+        }
+
+        function rgbToHex(r, g, b) {
+            return `#${((1 << 24) + (r << 16) + (g << 8) + +b).toString(16).slice(1)}`;
+        }
+
+        function copyColor(inputId) {
+            let input = document.getElementById(inputId);
+            navigator.clipboard.writeText(input.value);
+            addToHistory(input.value);
+        }
+
+        function addToHistory(color) {
+            let div = document.createElement('div');
+            div.className = 'history-item';
+            div.style.background = color;
+            div.onclick = () => { colorDisplay.style.background = color; hexCode.value = color; rgbCode.value = color; };
+            historyBox.prepend(div);
+        }
+
+        [redSlider, greenSlider, blueSlider].forEach(slider => slider.addEventListener('input', updateColor));
+
+        document.querySelector('.theme-toggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+        });
+
+        updateColor();
+    </script>
+
+</body>
+</html>
